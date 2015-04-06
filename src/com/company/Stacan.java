@@ -3,10 +3,10 @@ package com.company;
 /**
  * Created by Евгений on 04.04.2015.
  */
-public class Stacan
-{
-    public String imia;
-    public int gitkost;
+//public class Stacan
+/*
+public String imia;
+public int gitkost;
 
 
          public static String material = "Bumaga";
@@ -25,5 +25,10 @@ public class Stacan
         gitkost = a;
 
 
+
+
+
     }
+
 }
+*/

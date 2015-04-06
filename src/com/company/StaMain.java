@@ -29,7 +29,7 @@ public class StaMain {
         i = 110;
         u = i; // u = 110;
 
-        Stacan s = new Stacan("Super");
+        /*Stacan s = new Stacan("Super");
         Stacan k = new Stacan("Bigger");
         System.out.println("s: " + s.imia); //s: Super
         // s: Super
@@ -46,6 +46,12 @@ public class StaMain {
         s.nalit(30);
         System.out.println("s: " + s.procentZapolneniia());
         // s: 30
+        s.nalit(k.vylit());
+        System.out.println("s: " + s.procentZapolneniia());
+        System.out.println("k: " + k.procentZapolneniia());
+        // s: 30
+        // k: 0
+*/
 
 
     }
