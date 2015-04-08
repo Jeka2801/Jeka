@@ -25,17 +25,17 @@ public class Main6 {
           h.findElement(By.name("master")).sendKeys("12345678", Keys.ENTER);
           h.findElement(By.name("password")).getAttribute("value");
 
-
           String s = h.findElement(By.name("password")).getAttribute("value");
           System.out.println(s);
 
       }
-             public static String genPass(WebDriver w, String p, String s){
-             WebElement m =
+           public  static String GetPass (WebDriver r, String r1, String r2){
+                 r.findElement(By.name("master")).sendKeys(r1);
+                 r.findElement(By.name("site")).sendKeys(r2,Keys.ENTER);
+                  String G = r.findElement(By.name("password")).getAttribute("value");
+                  System.out.println(G);
 
-
-
-
+        return G ;}
 
 
       }
