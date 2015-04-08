@@ -93,7 +93,7 @@ public class AngelTest {
 
     }
     @Test
-    public void test() {
+    public void test5() {
 
         dr.findElement(By.name("master")).sendKeys("!@#$%^&*()");
         dr.findElement(By.name("site")).sendKeys("!@#$%^&*()", Keys.ENTER);
@@ -102,4 +102,12 @@ public class AngelTest {
         Assert.assertEquals(A, F);
     }
 
+    @Test
+    public void test6() {
+
+        String a = dr.findElements(By.tagName("input")).get(2).getAttribute("value");
+        String b = "Generate";
+        Assert.assertEquals( a,b );
+
+    }
 }
