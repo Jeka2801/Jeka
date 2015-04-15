@@ -20,16 +20,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class AngelTest {
     private WebDriver dr;
 
-    @Test
-    public void test() {
 
-        dr.findElement(By.name("master")).sendKeys("12345678");
-        dr.findElement(By.name("site")).sendKeys("gmail.com", Keys.ENTER);
-        String F = dr.findElement(By.name("password")).getAttribute("value");
-        String A = "W3Hdka0c1a";
-        Assert.assertEquals(A, F);
-
-    }
 
     @After
     public void clean() {
@@ -43,63 +34,88 @@ public class AngelTest {
                 "C:/Program/chromedriver.exe");
         dr = new ChromeDriver();
         dr.manage().window().maximize();
-        dr.get("http://angel.net/~nic/passwd.sha1.1a.html");
+      //  dr.get("http://oxogamestudio.com/passwd.current2.htm");
+          dr.get(" http://angel.net/~nic/passwd.current.html");
+    }
 
+    public void poisk(String S){
+        dr.findElement(By.name("master")).sendKeys(S);
+    }
+    public void site(String F){
+        dr.findElement(By.name("site")).sendKeys(F );
+
+    }
+    public String vozvrat(){
+        String F = dr.findElement(By.name("password")).getAttribute("value");
+        return F;
+    }
+
+    public void ENTER (){
+        dr.findElement(By.name("site")).sendKeys( Keys.ENTER);
     }
 
     @Test
+    public void test() {
+
+        poisk("12345678");
+        site("gmail.com");
+        ENTER();
+        String A = "W3Hdka0clbEI+@1a";
+        Assert.assertEquals(A,vozvrat());
+
+    }
+    @Test
     public void test1() {
 
-        dr.findElement(By.name("master")).sendKeys("");
-        dr.findElement(By.name("site")).sendKeys("gmail.com", Keys.ENTER);
-        String F = dr.findElement(By.name("password")).getAttribute("value");
-        String A = "zmcHOAyf1a";
-        Assert.assertEquals(A, F);
+        poisk("");
+        site("gmail.com");
+        ENTER();
+        String A = "W3Hdka0c1a";
+        Assert.assertEquals(A,vozvrat());
+
     }
 
     @Test
     public void test2() {
 
-        dr.findElement(By.name("master")).sendKeys("12345678");
-        dr.findElement(By.name("site")).sendKeys("", Keys.ENTER);
-        String F = dr.findElement(By.name("password")).getAttribute("value");
+        poisk("12345678");
+        site("");
+        ENTER();
         String A = "9Ixm2r5X1a";
-        Assert.assertEquals(A, F);
+        Assert.assertEquals(A, vozvrat());
     }
 
     @Test
     public void test3() {
 
-        dr.findElement(By.name("master")).sendKeys("");
-        dr.findElement(By.name("site")).sendKeys("", Keys.ENTER);
-        String F = dr.findElement(By.name("password")).getAttribute("value");
+        poisk("");
+        site("");
+        ENTER();
         String A = "BaefBs8/1a";
-        Assert.assertEquals(A, F);
+        Assert.assertEquals(A, vozvrat());
     }
 
     @Test
     public void test4() {
-        String y = "yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy" +
-                "yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy" +
-                "yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy";
-        String x = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" +
-                "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" +
-                "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx";
-        dr.findElement(By.name("master")).sendKeys(y);
-        dr.findElement(By.name("site")).sendKeys(x, Keys.ENTER);
-        String F = dr.findElement(By.name("password")).getAttribute("value");
-        String A = "514UELTc1a";
-        Assert.assertEquals(A, F);
+        int i = 0;
+        for (i=0;i<200;i++){
+            poisk("1");
+            site ("1");
+
+        }
+        ENTER();
+        String A = "aR8ztwNB1a";
+        Assert.assertEquals(A,vozvrat());
 
     }
     @Test
     public void test5() {
 
-        dr.findElement(By.name("master")).sendKeys("!@#$%^&*()");
-        dr.findElement(By.name("site")).sendKeys("!@#$%^&*()", Keys.ENTER);
-        String F = dr.findElement(By.name("password")).getAttribute("value");
+        poisk("!@#$%^&*()");
+        site("!@#$%^&*()");
+        ENTER();
         String A = "zZMDkc+s1a";
-        Assert.assertEquals(A, F);
+        Assert.assertEquals(A,vozvrat());
     }
 
     @Test
@@ -107,7 +123,7 @@ public class AngelTest {
 
         String a = dr.findElements(By.tagName("input")).get(2).getAttribute("value");
         String b = "Generate";
-        Assert.assertEquals( a,b );
+        Assert.assertEquals( b,a );
 
     }
 }
